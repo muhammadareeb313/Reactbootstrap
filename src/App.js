@@ -1,24 +1,26 @@
-import logo from './logo.svg';
+import { Redirect, Route, Switch } from 'react-router';
 import './App.css';
+import "../node_modules/bootstrap/dist/css/bootstrap.min.css"
+import "../node_modules/bootstrap/dist/js/bootstrap.esm"
 
-function App() {
+import Home from './components/Home';
+import Weather from './components/Weather';
+import Counter from './components/Counter';
+
+const App=()=>{
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+  <>
+
+  
+  <Switch>
+     <Route exact path="/"> <Home /></Route>
+     <Route exact path="/counter"> <Counter /></Route>
+     <Route exact path="/weather"> <Weather/></Route>
+     <Redirect to="/"/>
+
+   </Switch>
+
+   </>
   );
 }
 
